@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hover</title>
+	<style type="text/css">
+		body{
+			width: 100%;
+			margin:0;
+		}
+		ul li{
+			display:inline;
+			list-style: none;
+		}
+		ul{
+			background:#0072BB;
+		}
+		li a{
+			display:inline-block;
+			color:white;
+			text-align:center;
+			padding:14px 16px;
+			text-decoration:none;
+		}
+		li a:hover, .dropdown:hover{
+			background-color:#2F52E0;
+		}
+		.dropdown{
+			display:inline-block;
+		}
+		.content{
+			display:none;
+			position:absolute;
+			background-color:#f9f9f9;
+			min-width:160px;
+			box-shadow:0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+		.content a{
+			color:black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align:left;
+		}
+		.content a:hover{
+			background-color:#f1f1f1;
+		}
+		.dropdown:hover .content{
+			display:block;
+		}
+		#inner{
+			height:50px;
+			width:50px;
+			border-radius: 25px;
+			background: #FE4A49;
+			position: absolute;
+		}
+		#outer{
+			height: 400px;
+			width: 400px;
+			background:#0072BB;
+			position:relative;
+		}
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li><a href="#" class="active">Home</a></li>
+		<li class = "dropdown"><a class="dropbtn" href="#">Drop</a>
+		<div class= "content">
+			<a href="#">Drop 1</a>
+			<a href="#">Drop 2</a>
+			<a href="#">Drop 3</a>
+		</div>
+		</li>
+		<li><a href="#">Next</a></li>
+	</ul>
+	<center>
+		<div id="outer">
+			<div id="inner">
+				
+			</div>
+		</div>
+		<button onclick="move()">Click Me</button>
+	</center>
+</body>
+	<script type="text/javascript">
+		function move(){
+			var elem = document.getElementById("inner");
+			var pos = 0;
+			var id = setInterval(frame, 5);
+			function frame(){
+				if (pos == 350){
+					clearInterval(id);
+				} else{
+					pos++;
+					elem.style.top = pos + "px";
+					elem.style.left = pos + "px";
+				}
+			}
+		}
+	</script>
+
+</html>
